@@ -2,14 +2,14 @@ require 'digest/md5'
 
 class Capfile < ActiveRecord::Base
 
-  attr_accessible :content, :identifier, :snippets
+  attr_accessible :content, :identifier, :recipes
 
-  serialize :snippets, Array
+  serialize :recipes, Array
 
   before_save :calculate_identifier
 
   private
   def calculate_identifier
-    self.identifier = Digest::MD5.hexdigest(self.snippets.join)
+    self.identifier = Digest::MD5.hexdigest(self.recipes.join)
   end
 end
