@@ -92,6 +92,9 @@ GEM
       net-ssh (>= 1.99.1)
     openminds_deploy (1.0.7)
       capistrano (>= 2.5)
+    paper_trail (2.6.3)
+      activerecord (~> 3.0)
+      railties (~> 3.0)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
@@ -184,6 +187,7 @@ DEPENDENCIES
   jquery-rails
   mysql2
   openminds_deploy
+  paper_trail
   pry
   puma
   quiet_assets

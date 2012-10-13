@@ -15,4 +15,5 @@ class Snippet < ActiveRecord::Base
       s.save!
     end
   end
+  has_paper_trail
 end
