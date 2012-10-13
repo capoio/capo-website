@@ -4,5 +4,10 @@
   - @recipes.each do |recipe|
     %li= recipe.name
 %h3 Raw Capfile
-%textarea
-  = @capfile.content
+#editor_wrapper
+  #editor= @capfile.content
+
+:javascript
+  var editor = ace.edit("editor");
+  editor.setTheme("ace/theme/twilight");
+  editor.getSession().setMode("ace/mode/ruby");
