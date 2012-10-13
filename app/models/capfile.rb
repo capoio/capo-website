@@ -4,12 +4,17 @@ class Capfile < ActiveRecord::Base
 
   attr_accessible :content, :identifier, :recipes
 
-  serialize :recipes, Hash
+  serialize :recipes, Array
 
-  before_save :calculate_identifier
+  after_create :fetch_content
 
   private
-  def calculate_identifier
-    self.identifier = Digest::MD5.hexdigest(self.recipes)
+  def fetch_content
+    foo = ''
+    recipes.each do |recipe_hash|
+      foo << Recipe.where(id: recipe_hash.keys.first).where(version: recipe_hash.values.first).first.code
+      foo << '\n'
+    end
+    update_attribute :content, foo
   end
 end

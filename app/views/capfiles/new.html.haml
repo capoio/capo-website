@@ -1,0 +1,8 @@
+%h1 New Capfile
+= form_for @capfile do |form|
+  - Recipe.all.each do |recipe|
+    %p
+      = label_tag do
+        = check_box_tag 'recipes[]', recipe.id
+        = recipe.name
+  = form.submit 'Next'
