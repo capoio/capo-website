@@ -10,7 +10,7 @@
 # t.string   "name"
 # t.text     "description"
 # t.text     "code"
-# t.string   "code_version"
+# t.string   "version"
 # t.text     "variables" hash
 # t.text     "dependencies" hash
 
@@ -51,9 +51,9 @@ snippets = {
       # Default action to clean older versions
       after :deploy, "deploy:cleanup"
       ',
-    code_version: '0.1',
-    variables: {user: 'String', application: 'String', branch: 'String', keep_releases: 'Integer'},
-    dependencies: {},
+    version: '0.1',
+    variables: [:user, :application, :branch, :keep_releases],
+    dependencies: [],
     category_id: Category.where(name: 'defaults').first.id,
     tag_list: [:defaults, :configs]
   },
@@ -80,9 +80,9 @@ snippets = {
         end
       end
       ',
-    code_version: '0.1',
-    variables: {},
-    dependencies: {},
+    version: '0.1',
+    variables: [],
+    dependencies: [],
     category_id: Category.where(name: 'rails').first.id,
     tag_list: [:rails, :server]
   },
@@ -107,9 +107,9 @@ snippets = {
       end
       after "deploy:update_code", "deploy:needs_migrations"
       ',
-    code_version: '0.1',
-    variables: {},
-    dependencies: {},
+    version: '0.1',
+    variables: [],
+    dependencies: [],
     category_id: Category.where(name: 'rails').first.id,
     tag_list: [:rails, :database]
   },
@@ -117,9 +117,9 @@ snippets = {
     name: 'default_bundler',
     description: '',
     code: %Q{require 'bundler/capistrano'},
-    code_version: '0.1',
-    variables: {},
-    dependencies: {gem: 'bundler'},
+    version: '0.1',
+    variables: [],
+    dependencies: [],
     category_id: Category.where(name: 'defaults').first.id,
     tag_list: [:rails, :bundler]
   },
@@ -151,9 +151,9 @@ snippets = {
         after \'deploy:finalize_update\', "configs:#{name}:link"
       end
       ',
-    code_version: '0.1',
-    variables: {configs: 'Array'},
-    dependencies: {},
+    version: '0.1',
+    variables: [:configs],
+    dependencies: [],
     category_id: Category.where(name: 'rails').first.id,
     tag_list: [:rails, :configs]
   }
@@ -161,5 +161,5 @@ snippets = {
 
 snippets.each do |snippet|
   # puts snippet[1]
-  Snippet.create snippet[1]
+  Recipe.create snippet[1]
 end

@@ -3,8 +3,8 @@ class Recipe < ActiveRecord::Base
 
   attr_accessible :code, :dependencies, :description, :name, :variables, :version, :tag_list, :category_id
 
-  serialize :variables, Hash
-  serialize :dependencies, Hash
+  serialize :variables, Array
+  serialize :dependencies, Array
 
   belongs_to :category
 
