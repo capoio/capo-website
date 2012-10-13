@@ -28,6 +28,8 @@ GEM
     activesupport (3.2.8)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    acts-as-taggable-on (2.3.3)
+      rails (~> 3.0)
     airbrake (3.1.5)
       builder
       girl_friday
@@ -172,6 +174,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   airbrake
   capistrano-ext
   coffee-rails (~> 3.2.1)

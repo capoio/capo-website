@@ -7,6 +7,7 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'squeel'
 gem 'mysql2'
+gem 'acts-as-taggable-on'
 
 # Gems used only for assets and not required
 # in production environments by default.
