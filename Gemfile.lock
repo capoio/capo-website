@@ -34,6 +34,7 @@ GEM
       builder
       girl_friday
     arel (3.0.2)
+    bootstrap-sass (2.1.0.0)
     builder (3.0.3)
     capistrano (2.13.4)
       highline
@@ -179,6 +180,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   airbrake
+  bootstrap-sass
   capistrano-ext
   coffee-rails (~> 3.2.1)
   git

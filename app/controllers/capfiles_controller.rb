@@ -13,4 +13,9 @@ class CapfilesController < ApplicationController
     redirect_to @capfile
   end
 
+  def show
+    @capfile = Capfile.where(identifier: params[:id]).first
+    @recipes = @capfile.all_recipes
+  end
+
 end

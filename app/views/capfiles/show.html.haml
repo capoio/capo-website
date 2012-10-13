@@ -1,0 +1,8 @@
+%h1 Selected Capfile
+%h3 Included recipes
+%ul
+  - @recipes.each do |recipe|
+    %li= recipe.name
+%h3 Raw Capfile
+%textarea
+  = @capfile.content

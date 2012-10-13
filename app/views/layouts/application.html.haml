@@ -1,0 +1,54 @@
+!!!
+%html
+  %head
+    %title Capo
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand{:href => "#"} Capo.io
+          .nav-collapse.collapse
+            %ul.nav
+              %li.active
+                %a{:href => "#"} Home
+              %li
+                %a{:href => "#about"} About
+              %li
+                %a{:href => "#contact"} Contact
+    .container
+      = yield
+
+    %footer.footer
+      .container
+        %p.pull-right
+          %a{:href => "#"} Back to top
+        %p
+          Capo.io is a thing built by
+          = succeed "," do
+            %a{:href => "http://twitter.com/zhann", :target => "_blank"} @Zhann
+          = succeed "," do
+            %a{:href => "http://twitter.com/jeroen_j", :target => "_blank"} @jeroen_j
+          %a{:href => "http://twitter.com/joren", :target => "_blank"} @joren
+          and
+          %a{:href => "http://twitter.com/hannesfostie", :target => "_blank"} @hannesfostie
+          as part of a 48 hour hackathon called
+          = succeed "." do
+            %a{:href => "http://www.railsrumble.com", :target => "_blank"} Rails Rumble 2012
+        %p
+          Code not licensed, feel free to steal. We prefer forking and improving it on
+          %a{:href => "https://github.com/capoio", :target => "_blank"} Github
+          though.
+        %p
+          Icons from
+          = succeed "," do
+            %a{:href => "http://glyphicons.com"} Glyphicons Free
+          licensed under
+          = succeed "." do
+            %a{:href => "http://creativecommons.org/licenses/by/3.0/"} CC BY 3.0
