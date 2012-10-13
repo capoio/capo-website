@@ -1,5 +1,8 @@
 class Snippet < ActiveRecord::Base
-  attr_accessible :code, :dependencies, :description, :name, :variables, :version, :tag_list
+  acts_as_taggable
+  has_paper_trail
+
+  attr_accessible :code, :dependencies, :description, :name, :variables, :code_version, :tag_list, :category_id
 
   serialize :variables, Array
   serialize :dependencies, Array
@@ -15,5 +18,8 @@ class Snippet < ActiveRecord::Base
       s.save!
     end
   end
-  has_paper_trail
+
+  validates_presence_of :name
+  validates_uniqueness_of :name
+  validates_format_of :name, with: /^\w+$/
 end
