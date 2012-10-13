@@ -4,7 +4,5 @@ class Snippet < ActiveRecord::Base
   serialize :variables, Hash
   serialize :dependencies, Hash
 
-  belongs_to :category
-
   acts_as_taggable
 end
