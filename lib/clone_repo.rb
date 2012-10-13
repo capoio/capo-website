@@ -3,10 +3,10 @@ def clone_repo
   begin
     repo = Git.open("#{Rails.root}/vendor/repo.git")
   rescue
-    Git.clone("https://github.com/capoio/capo.git", "vendor/repo.git")
+    Git.clone("git@github.com:capoio/capo.git", "vendor/repo.git")
     retry
   end
-  repo.pull
+  repo.lib.send :command, "pull" # repo.pull is broken in git-1.2.5, see: https://github.com/schacon/ruby-git/issues/32
 
   # Make sure we have the recipes script
   recipes_script = "#{Rails.root}/lib/recipes.rb"
