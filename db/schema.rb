@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013140022) do
+ActiveRecord::Schema.define(:version => 20121013140425) do
 
   create_table "capfiles", :force => true do |t|
     t.string   "identifier"
@@ -23,7 +23,14 @@ ActiveRecord::Schema.define(:version => 20121013140022) do
 
   add_index "capfiles", ["identifier"], :name => "identifier_idx"
 
-  create_table "snippets", :force => true do |t|
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "recipes", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.text     "code"
