@@ -9,6 +9,7 @@ gem 'squeel'
 gem 'mysql2'
 gem 'acts-as-taggable-on'
 gem 'git'
+gem 'whenever', :require => false
 
 # Gems used only for assets and not required
 # in production environments by default.
