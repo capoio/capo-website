@@ -12,7 +12,11 @@
   #raw.tab-pane.active
     %h3 Raw Capfile
     .editor_wrapper
-      #editor= @capfile.content
+      #editor
+        - @recipes.each do |recipe|
+          = recipe.settings_code
+        - @recipes.each do |recipe|
+          = recipe.code
     :javascript
       var editor = ace.edit("editor");
       editor.setTheme("ace/theme/twilight");
