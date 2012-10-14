@@ -10,3 +10,7 @@ jQuery ->
   $(".tooltip").tooltip()
   $("a[rel=tooltip]").tooltip()
   $('.recipe').popover()
+
+  $("#cap-nav a").click (e) ->
+    e.preventDefault()
+    $(this).tab "show"

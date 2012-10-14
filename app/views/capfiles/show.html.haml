@@ -3,11 +3,34 @@
 %ul
   - @recipes.each do |recipe|
     %li= recipe.name
-%h3 Raw Capfile
-#editor_wrapper
-  #editor= @capfile.content
 
-:javascript
-  var editor = ace.edit("editor");
-  editor.setTheme("ace/theme/twilight");
-  editor.getSession().setMode("ace/mode/ruby");
+%ul#cap-nav.nav.nav-tabs
+  %li.active= link_to 'raw file', '#raw'
+  %li= link_to 'modular file', '#module'
+
+.tab-content
+  #raw.tab-pane.active
+    %h3 Raw Capfile
+    .editor_wrapper
+      #editor= @capfile.content
+    :javascript
+      var editor = ace.edit("editor");
+      editor.setTheme("ace/theme/twilight");
+      editor.getSession().setMode("ace/mode/ruby");
+  #module.tab-pane
+    %h3 Modular capfile
+    %pre
+      Copy the modular format of your selected capfile. You can load all recipes from our <a href='https://github.com/capoio/capo/'>capo repository</a>.
+      %br Use the capo gem to import the recipes into your application. Each recipe is saved to config/deploy/recipe.rb. Don't forget to fill in the settings in those files.
+    %h3 Capfile
+    .editor_wrapper
+      #module_editor
+        load 'deploy'
+        load 'config/deploy'
+        %br
+        - @recipes.each do |recipe|
+          load 'config/deploy/#{recipe.name}'
+    :javascript
+      var module_editor = ace.edit("module_editor");
+      module_editor.setTheme("ace/theme/twilight");
+      module_editor.getSession().setMode("ace/mode/ruby");
