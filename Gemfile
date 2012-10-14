@@ -20,8 +20,7 @@ group :assets do
 end
 
 group :development do
-  gem 'capistrano-ext'
-  gem 'openminds_deploy'
+  gem 'capo'
   gem 'pry'
   gem 'quiet_assets'
   gem 'rack-webconsole-pry'

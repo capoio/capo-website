@@ -1,23 +1,17 @@
 load 'deploy'
-require 'airbrake/capistrano'
-load 'deploy/assets'
 
-set :user, 'capo'
-set :application, :capo
-server 'capo.io', :app, :web, :db, primary: true
+load 'config/deploy'
 
-set :repository, 'git@github.com:railsrumble/r12-team-91.git'
-set :branch, 'master'
-set :rails_env, :production
-
-set :normalize_asset_timestamps, false
-
-set :whenever_command, "bundle exec whenever"
-
-require 'openminds_deploy/defaults'
-require 'openminds_deploy/git'
-require 'openminds_deploy/rails3'
-require "whenever/capistrano"
+load 'config/deploy/bundler'
+load 'config/deploy/default'
+load 'config/deploy/git_default'
+load 'config/deploy/rails_assets_precompile'
+load 'config/deploy/rails_env_configs'
+load 'config/deploy/rails_migrations'
+load 'config/deploy/ssh_default'
+load 'config/deploy/tail_log'
+load 'config/deploy/ruby_whenever'
+load 'config/deploy/airbrake'
 
 namespace :puma do
   desc 'Restart the web server'
