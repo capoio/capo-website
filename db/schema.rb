@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013144611) do
+ActiveRecord::Schema.define(:version => 20121014202346) do
 
   create_table "capfiles", :force => true do |t|
     t.string   "identifier"
@@ -37,9 +37,10 @@ ActiveRecord::Schema.define(:version => 20121013144611) do
     t.string   "version"
     t.text     "variables"
     t.text     "dependencies"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.integer  "category_id"
+    t.text     "settings_code"
   end
 
   create_table "taggings", :force => true do |t|
