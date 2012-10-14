@@ -1,8 +1,8 @@
 %h1 New Capfile
 = form_for @capfile do |form|
   - Recipe.all.each do |recipe|
-    .recipe{"data-content" => recipe.description, "data-delay" => "300", "data-original-title" => recipe.name, "data-placement" => "top", "data-trigger" => "hover", :id => "recipe_#{recipe.name}", "data-dependencies" => "#{recipe.name}#{"," unless recipe.dependencies.empty?}#{recipe.dependencies.join(',')}", "data-checked-from-dependencies" => "" }
-      = check_box_tag recipe.name, recipe.name, false, class: 'recipe_check_box'
+    .recipe{"data-content" => recipe.description, "data-delay" => 500, "data-original-title" => recipe.name, "data-placement" => "top", "data-trigger" => "hover", :id => "recipe_#{recipe.name}", "data-dependencies" => "#{recipe.name}#{"," unless recipe.dependencies.empty?}#{recipe.dependencies.join(',')}", "data-checked-from-dependencies" => "" }
+      = check_box_tag 'recipes[]', recipe.id, false, class: 'recipe_check_box', id: "check_recipe_#{recipe.name}"
       .recipe-title
         = recipe.name
   = form.submit 'Next', class: 'btn'
