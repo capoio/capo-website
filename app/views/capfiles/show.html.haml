@@ -32,7 +32,7 @@
       .editor_wrapper
         #module_editor
           - @recipes.each do |recipe|
-            capo add recipe.name
+            capo add #{recipe.name}
     %p After doing that you can change the configuration settings in the recipes found in <code>config/deploy/a_recipe.rb</code>. You can set the default configs in <code>config/deploy.rb</code>.
     :javascript
       var module_editor = ace.edit("module_editor");
