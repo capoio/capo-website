@@ -19,17 +19,17 @@
       editor.getSession().setMode("ace/mode/ruby");
   #module.tab-pane
     %h3 Modular capfile
-    %pre
-      Copy the modular format of your selected capfile. You can load all recipes from our <a href='https://github.com/capoio/capo/'>capo repository</a>.
-      %br Use the capo gem to import the recipes into your application. Each recipe is saved to config/deploy/recipe.rb. Don't forget to fill in the settings in those files.
-    %h3 Capfile
-    .editor_wrapper
-      #module_editor
-        load 'deploy'
-        load 'config/deploy'
-        %br
-        - @recipes.each do |recipe|
-          load 'config/deploy/#{recipe.name}'
+    %p
+      To use the modular Capfile format you need to use our gem.
+      %br Add <code>gem 'capo', :group => 'development'</code> to your <code>Gemfile</code>.
+    %p Run <code>capo begin</code> to generate your <code>Capfile</code> and <code>config/deploy.rb</code>.
+    %p
+      Now that you have your basic setup, you can add all the selected recipes:
+      .editor_wrapper
+        #module_editor
+          - @recipes.each do |recipe|
+            capo add recipe.name
+    %p After doing that you can change the configuration settings in the recipes found in <code>config/deploy/a_recipe.rb</code>. You can set the default configs in <code>config/deploy.rb</code>.
     :javascript
       var module_editor = ace.edit("module_editor");
       module_editor.setTheme("ace/theme/twilight");

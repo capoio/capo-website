@@ -11,7 +11,7 @@
   = form.submit 'Generate', class: 'recipes-form-next'
   .category-recipes
     - Recipe.all.each do |recipe|
-      .recipe{"data-content" => recipe.description, "data-delay" => 500, "data-original-title" => recipe.name, "data-placement" => "top", "data-trigger" => "hover", :id => "recipe_#{recipe.name}", "data-dependencies" => "#{recipe.name}#{"," unless recipe.dependencies.empty?}#{recipe.dependencies.join(',')}", "data-checked-from-dependencies" => "" }
-        = check_box_tag 'recipes[]', recipe.id, false, class: 'recipe_check_box', id: "check_recipe_#{recipe.name}"
+      .recipe{"data-content" => recipe.description, "data-delay" => 500, "data-original-title" => recipe.name, "data-placement" => "top", "data-trigger" => "hover", :id => "recipe_#{recipe.name}", "data-dependencies" => "#{recipe.name}#{"," unless recipe.dependencies.empty?}#{recipe.dependencies.join(',')}", "data-checked-from-dependencies" => "", :class => ('selected default' if recipe.name == 'default') }
+        = check_box_tag 'recipes[]', recipe.id, recipe.name == 'default' ? true : false, class: 'recipe_check_box', id: "check_recipe_#{recipe.name}"
         .recipe-title
           = recipe.name
