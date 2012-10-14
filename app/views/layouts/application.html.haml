@@ -51,14 +51,7 @@
           = succeed "." do
             %a{:href => "http://www.railsrumble.com", :target => "_blank"} Rails Rumble 2012
         %p
-          Code not licensed, feel free to steal. We prefer forking and improving it on
+          Code not licensed, feel free to steal. We'd prefer it if you forked and contributed on
           %a{:href => "https://github.com/capoio", :target => "_blank"} Github
           though.
-        %p
-          Icons from
-          = succeed "," do
-            %a{:href => "http://glyphicons.com"} Glyphicons Free
-          licensed under
-          = succeed "." do
-            %a{:href => "http://creativecommons.org/licenses/by/3.0/"} CC BY 3.0
     = render '/layouts/gosquared' if Rails.env == 'production'
