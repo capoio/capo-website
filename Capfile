@@ -7,7 +7,7 @@ set :application, :capo
 server 'capo.io', :app, :web, :db, primary: true
 
 set :repository, 'git@github.com:railsrumble/r12-team-91.git'
-set :branch, :master
+set :branch, 'alt-design'
 set :rails_env, :production
 
 set :normalize_asset_timestamps, false
