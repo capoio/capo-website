@@ -16,17 +16,17 @@ load 'config/deploy/airbrake'
 namespace :puma do
   desc 'Restart the web server'
   task :restart, :roles => :app do
-    run "kill -9 `pgrep puma` && rm /tmp/sockets/capo.sock && cd /home/capo/capo && /usr/bin/puma -e production -b unix:///tmp/sockets/capo.sock 2>&1 >> /home/capo/logs/capo.log &"
+    run "kill -s USR2 `cat /tmp/capo.pid `"
   end
 
   desc 'Stop the web server'
   task :stop, :roles => :app do
-    run 'kill `ps x | grep puma | cut -c1-5 | head -1`'
+    run 'kill -9 `cat /tmp/capo.pid`'
   end
 
   desc 'Start the web server'
   task :start, :roles => :app do
-    run 'cd /home/capo/capo && /usr/bin/puma -e production -b unix:///tmp/sockets/capo.sock 2>&1 >> /home/capo/logs/capo.log'
+    run 'cd /home/capo/capo && /usr/bin/puma --pidfile /tmp/capo.pid -e production -b unix:///tmp/sockets/capo.sock 2>&1 >> /home/capo/logs/capo.log'
   end
 end
 
