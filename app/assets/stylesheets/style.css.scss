@@ -151,7 +151,7 @@ html[xmlns] .clearfix {
   display: inline-block;
   color: #fff;
   border-radius: 5px;
-  background: #534b87;
+  background: #777777;
   line-height: 1.5;
   padding: 15px 35px;
   text-align: center;
@@ -160,8 +160,8 @@ html[xmlns] .clearfix {
   font-weight: 200;
 }
 
-.recipe.selected {
-  background: #cccccc;
+.recipe.selected, .recipe.selected:hover {
+  background: #343156;
 }
 
 .recipe:hover {
