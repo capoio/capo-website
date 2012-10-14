@@ -1,12 +1,3 @@
-%h1 New Capfile
-= form_for @capfile do |form|
-  - Recipe.all.each do |recipe|
-    .recipe{"data-content" => recipe.description, "data-delay" => 500, "data-original-title" => recipe.name, "data-placement" => "top", "data-trigger" => "hover", :id => "recipe_#{recipe.name}", "data-dependencies" => "#{recipe.name}#{"," unless recipe.dependencies.empty?}#{recipe.dependencies.join(',')}", "data-checked-from-dependencies" => "" }
-      = check_box_tag 'recipes[]', recipe.id, false, class: 'recipe_check_box', id: "check_recipe_#{recipe.name}"
-      .recipe-title
-        = recipe.name
-  = form.submit 'Next', class: 'btn'
-
 - content_for(:header) do
   .row
     .span9
@@ -14,3 +5,13 @@
       %h2 Select recipes from our library. Add your own. Download the Capfile. Ship it!
     .span3
       %img{:alt => "capo.io logo", :height => "200", :src => "http://placehold.it/200x200", :width => "200", :class => "header-logo" }
+
+
+%h1 New Capfile
+= form_for @capfile do |form|
+  = form.submit 'Next', class: 'btn', id: 'next'
+  - Recipe.all.each do |recipe|
+    .recipe{"data-content" => recipe.description, "data-delay" => 500, "data-original-title" => recipe.name, "data-placement" => "top", "data-trigger" => "hover", :id => "recipe_#{recipe.name}", "data-dependencies" => "#{recipe.name}#{"," unless recipe.dependencies.empty?}#{recipe.dependencies.join(',')}", "data-checked-from-dependencies" => "" }
+      = check_box_tag 'recipes[]', recipe.id, false, class: 'recipe_check_box', id: "check_recipe_#{recipe.name}"
+      .recipe-title
+        = recipe.name
