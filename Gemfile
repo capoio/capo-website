@@ -2,37 +2,35 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 
+gem 'acts-as-taggable-on'
 gem 'airbrake'
+gem 'git'
 gem 'haml-rails'
 gem 'jquery-rails'
-gem 'squeel'
 gem 'mysql2'
-gem 'acts-as-taggable-on'
-gem 'git'
-gem 'whenever', :require => false
+gem 'squeel'
+gem 'whenever', require: false
 
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'therubyracer', :platforms => :ruby
-  gem 'uglifier', '>= 1.0.3'
   gem 'bootstrap-sass'
-end
-
-group :production do
-  gem 'puma'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'therubyracer'
+  gem 'uglifier'
 end
 
 group :development do
   gem 'capistrano-ext'
   gem 'openminds_deploy'
-  gem 'quiet_assets'
   gem 'pry'
+  gem 'quiet_assets'
   gem 'rack-webconsole-pry'
 end
 
 group :development, :test do
-  gem 'rspec-rails', ">= 2.0.1"
+  gem 'rspec-rails'
+end
+
+group :production do
+  gem 'puma'
 end

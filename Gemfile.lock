@@ -197,9 +197,9 @@ DEPENDENCIES
   quiet_assets
   rack-webconsole-pry
   rails (= 3.2.8)
-  rspec-rails (>= 2.0.1)
+  rspec-rails
   sass-rails (~> 3.2.3)
   squeel
   therubyracer
-  uglifier (>= 1.0.3)
+  uglifier
   whenever
