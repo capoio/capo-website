@@ -27,13 +27,14 @@
       To use the modular Capfile format you need to use our gem.
       %br Add <code>gem 'capo', :group => 'development'</code> to your <code>Gemfile</code>.
     %p Run <code>capo begin</code> to generate your <code>Capfile</code> and <code>config/deploy.rb</code>.
+    %p Now that you have your basic setup, you can add all the selected recipes by running <code>capo add #{@recipes.map(&:name).join ' '}</code>
+    %p After doing that you can change the configuration settings in the recipes found in <code>config/deploy/a_recipe.rb</code>. You can set the default configs in <code>config/deploy.rb</code>.
+    %h3 Commands summary
     %p
-      Now that you have your basic setup, you can add all the selected recipes:
       .editor_wrapper
         #module_editor
-          - @recipes.each do |recipe|
-            capo add #{recipe.name}
-    %p After doing that you can change the configuration settings in the recipes found in <code>config/deploy/a_recipe.rb</code>. You can set the default configs in <code>config/deploy.rb</code>.
+          capo begin
+          capo add #{@recipes.map(&:name).join ' '}
     :javascript
       var module_editor = ace.edit("module_editor");
       module_editor.setTheme("ace/theme/twilight");
