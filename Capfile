@@ -12,9 +12,12 @@ set :rails_env, :production
 
 set :normalize_asset_timestamps, false
 
+set :whenever_command, "bundle exec whenever"
+
 require 'openminds_deploy/defaults'
 require 'openminds_deploy/git'
 require 'openminds_deploy/rails3'
+require "whenever/capistrano"
 
 namespace :puma do
   desc 'Restart the web server'
