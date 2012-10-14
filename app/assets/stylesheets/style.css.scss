@@ -1,5 +1,44 @@
 @import "bootstrap";
 
+/* Overrides -------------------------------------------
+*/
+
+.navbar-inverse .navbar-inner {
+  background: #242337;
+  border-bottom: 1px solid #c1e2b1;
+}
+
+.navbar-inverse .nav .active > a, .navbar-inverse .nav .active > a:hover, .navbar-inverse .nav .active > a:focus {
+  background: #343156;
+}
+
+.header {
+  margin-top: -20px;
+  padding-bottom: 150px;
+  background: #7eab68;
+}
+
+.header h1, .header h2 {
+  margin-top: 40px;
+  color: #fff;
+  font-weight: normal;
+}
+
+.header-logo {
+  margin-top: 40px;
+}
+
+.container.cover-header {
+  margin-top: -120px;
+  background: #fff;
+  border-radius: 8px;
+  border: 24px solid #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #242337;
+}
+
 /* General ---------------------------------------------
 */
 
@@ -112,7 +151,7 @@ html[xmlns] .clearfix {
   display: inline-block;
   color: #fff;
   border-radius: 5px;
-  background: #999999;
+  background: #534b87;
   line-height: 1.5;
   padding: 15px 35px;
   text-align: center;
@@ -126,7 +165,7 @@ html[xmlns] .clearfix {
 }
 
 .recipe:hover {
-  background: #444444;
+  background: #242337;
 }
 
 .recipe .recipe-title {
@@ -158,4 +197,14 @@ html[xmlns] .clearfix {
 .footer-links li {
   display: inline;
   margin-right: 10px;
+}
+
+
+/* About
+-------------------------------------------------- */
+
+p.about {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 2em;
 }
