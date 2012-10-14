@@ -29,10 +29,16 @@
 }
 
 .container.cover-header {
-  margin-top: -120px;
+  margin-top: -109px;
   background: #fff;
   border-radius: 8px;
-  border: 24px solid #fff;
+  padding: 24px;
+}
+
+.container.cover-header h1 {
+  margin-top: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #c0bcdd;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -157,11 +163,11 @@ html[xmlns] .clearfix {
   clear:both;
 }
 
-.recipes-form-next {
+.recipes-form-generate {
   position: absolute;
   padding: 20px 40px;
-  right: 10px;
-  top: -50px;
+  right: 0px;
+  top: -95px;
   font-size: 2em;
   background: #E02543;
   border: 0;

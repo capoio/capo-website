@@ -8,7 +8,7 @@
 
 %h1 Choose your recipes
 = form_for @capfile do |form|
-  = form.submit 'Generate', class: 'recipes-form-next'
+  = form.submit 'Generate', class: 'recipes-form-generate'
   .category-recipes
     - Recipe.all.each do |recipe|
       .recipe{"data-content" => recipe.description, "data-delay" => 500, "data-original-title" => recipe.name, "data-placement" => "top", "data-trigger" => "hover", :id => "recipe_#{recipe.name}", "data-dependencies" => "#{recipe.name}#{"," unless recipe.dependencies.empty?}#{recipe.dependencies.join(',')}", "data-checked-from-dependencies" => "", :class => ('selected default' if recipe.name == 'default') }
