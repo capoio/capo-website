@@ -191,16 +191,28 @@ html[xmlns] .clearfix {
 }
 
 .recipe {
+  position: relative;
   display: inline-block;
   color: #fff;
   border-radius: 5px;
   background: #777777;
   line-height: 1.5;
-  padding: 15px 35px;
+  padding: 15px 45px;
   text-align: center;
   margin: 5px;
   cursor:pointer;
   font-weight: 200;
+}
+
+.recipe.new:before {
+  content: 'NEW';
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  border-radius: 3px;
+  padding: 0 2px;
+  background: #E02543;
+  color: #fff;
 }
 
 .recipe.selected, .recipe.selected:hover {
