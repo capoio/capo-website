@@ -32,4 +32,5 @@ end
 
 group :production do
   gem 'puma'
+  gem 'rack-google-analytics'
 end
