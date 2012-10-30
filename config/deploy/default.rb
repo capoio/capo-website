@@ -2,10 +2,10 @@
 ###### Begin sets
 
 # Set the user of your application
-set :user, 'capo'
+# set :user, 'capo'
 
 #Set the application name on the server
-set :application, 'capo'
+# set :application, 'capo'
 
 # Set the name of your branch
 set :branch, :master

@@ -1,5 +1,5 @@
-set :application, "capo"
-set :repository,  "git@github.com:capoio/capo-website.git"
-set :branch,      "master"
+set :repository, 'git@github.com:capoio/capo-website.git'
 
-server 'capo.io', :app, :web, :db, primary: true
+server 'pro-007.openminds.be', :app, :web, :db, primary: true
+set :user, 'capo'
+set :application, 'default_app'
